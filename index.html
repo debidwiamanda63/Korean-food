@@ -143,6 +143,7 @@ orderBtn.addEventListener("click", ()=>{
   const productList = cart.map(i=>`${i.name} x${i.qty} (${i.price*i.qty})`).join("\n");
   const message = `
 ========== PESANAN ==========
+Nama Pemesan: ${customerNameInput.value}
 ${productList}
 -----------------------------
 Alamat: ${addressInput.value}
