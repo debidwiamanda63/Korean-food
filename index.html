@@ -96,8 +96,8 @@ function addToCart(id) {
 
 function calculateDelivery(addr) {
   const a = addr.toLowerCase();
-  if(a.includes("batusangkar")) return 5000;
-  return 0;
+  if(a.includes("lima kaum", "rambatan" )) return 0;
+  return 5000;
 }
 
 function renderCart() {
