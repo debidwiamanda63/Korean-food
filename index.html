@@ -75,7 +75,7 @@
     <input type="text" id="customer-name" placeholder="Masukkan nama lengkap">
 
     <label>Alamat Pengantar:</label>
-    <input type="text" id="address" placeholder="Masukkan alamat lengkap(Diatas 50000 gratis ongkir) ">
+    <input type="text" id="address" placeholder="Masukkan alamat lengkap (Diatas 50000 gratis ongkir)">
 
     <label>Metode Pengantaran:</label>
     <select id="delivery-method" onchange="renderCart()">
@@ -99,7 +99,6 @@
 
     <button id="order-btn">✅ Pesan via WhatsApp</button>
 
-    <!-- Alamat Toko -->
     <div style="margin-top:15px; text-align:center;">
       <p>📍 Alamat Toko:</p>
       <a href="https://maps.app.goo.gl/9imqdMpAC4JAK2nZ8" 
@@ -251,6 +250,15 @@ orderBtn.addEventListener("click", ()=>{
   if(!confirmOrder) return;
 
   const productList = cart.map(i=>`${i.name} x${i.qty} (${i.price*i.qty})`).join("\n");
+
+  // Tambahan pesan jika transfer
+  let transferNote = "";
+  if(paymentSelect.value === "SEABANK") {
+    transferNote = "\n\n💳 Silakan transfer ke SEA Bank 901707287542 a.n Debi Dwi Amanda.\n📸 Jangan lupa upload bukti transfer (foto).";
+  } else if(paymentSelect.value === "DANA") {
+    transferNote = "\n\n💳 Silakan transfer ke DANA 089525161966 a.n Debi Dwi Amanda.\n📸 Jangan lupa upload bukti transfer (foto).";
+  }
+
   const message = `
 ========== PESANAN ==========
 Nama Pemesan: ${customerNameInput.value}
@@ -263,7 +271,9 @@ Catatan: ${notesInput.value}
 -----------------------------
 Total: Rp ${totalPriceEl.textContent}
 =============================
+${transferNote}
 `;
+
   window.open(`https://wa.me/6288279631889?text=${encodeURIComponent(message)}`, "_blank");
 });
 
