@@ -5,76 +5,276 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ANNYEONG - Jualan Makanan Online</title>
 <style>
-  body { font-family: Arial, sans-serif; padding: 10px; max-width: 600px; margin: auto; }
-  h1 { text-align: center; }
+ 
+  .copy-btn {
+    background: #2196f3;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 10px;
+    color: white;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  .copy-btn:hover {
+    background: #1976d2;
+  }
+</style>
+
+  <style>
+  nav a {
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    background: rgba(0,0,0,0.2);
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: 0.2s;
+  }
+
+  /* garis underline animasi */
+  nav a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 2px;
+    width: 0;
+    height: 3px;
+    background: #ffeb3b;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    border-radius: 2px;
+  }
+
+  nav a.active::after {
+    width: 60%;
+  }
+
+  nav a:hover {
+    background: rgba(0,0,0,0.35);
+  }
+
+<script>
+ 
+
+
+  const sections = document.querySelectorAll("main > div, footer");
+  const navLinks = document.querySelectorAll("nav a");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach(sec => {
+      const top = window.scrollY;
+      const offset = sec.offsetTop - 150;
+      const height = sec.offsetHeight;
+      if (top >= offset && top < offset + height) {
+        current = sec.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
+
+  body { 
+    font-family: 'Segoe UI', sans-serif; 
+    padding: 0; margin: 0; 
+    background: linear-gradient(135deg, #ffe5ec, #e0f7fa);
+    color: #333;
+    scroll-behavior: smooth;
+  }
+  header {
+    background: linear-gradient(90deg, #ff80ab, #82b1ff);
+    color: white;
+    padding: 15px 10px 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 1.8em;
+    text-align: center;
+  }
+  header p {
+    margin: 3px 0 10px;
+    font-size: 1em;
+    text-align: center;
+    font-style: italic;
+  }
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    background: rgba(0,0,0,0.2);
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: 0.2s;
+  }
+  nav a:hover {
+    background: rgba(0,0,0,0.35);
+  }
+  main {
+    max-width: 700px;
+    margin: auto;
+    padding: 20px 15px 80px;
+  }
   .products {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 15px;
   }
   .product {
-    border: 1px solid #ccc;
-    padding: 5px;
-    border-radius: 8px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 10px;
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    transition: transform 0.2s ease;
   }
+  .product:hover { transform: scale(1.03); }
   .product img {
     width: 100%;
     height: 150px;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 8px;
   }
-  button { padding: 5px 10px; margin-top: 5px; background: #3498db; color: #fff; border: none; border-radius: 5px; cursor: pointer; }
-  button:disabled { background: #ccc; cursor: not-allowed; }
-  .cart { margin-top: 20px; border-top: 2px solid #333; padding-top: 10px; }
-  input, select, textarea { padding: 5px; margin-top: 5px; width: 100%; border-radius: 5px; border: 1px solid #ccc; }
-  .total { font-weight: bold; margin-top: 5px; }
+  button { 
+    padding: 8px 12px; 
+    margin-top: 8px; 
+    background: linear-gradient(90deg, #ff4081, #f48fb1);
+    color: #fff; 
+    border: none; 
+    border-radius: 8px; 
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+  }
+  button:hover { opacity: 0.9; transform: scale(1.05); }
+  button:disabled { background: #ccc; cursor: not-allowed; transform: none; }
+  .cart { 
+    margin-top: 25px; 
+    background: #fff; 
+    border-radius: 12px; 
+    padding: 15px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  .cart h2 { color: #2196f3; margin-bottom: 10px; }
+  input, select, textarea { 
+    padding: 8px; 
+    margin-top: 5px; 
+    width: 100%; 
+    border-radius: 8px; 
+    border: 1px solid #bbb; 
+    margin-bottom: 10px;
+  }
+  .total { 
+    font-weight: bold; 
+    font-size: 1.2em; 
+    color: #d32f2f; 
+    margin-top: 10px; 
+  }
   .remove-btn {
-    background: #e74c3c;
+    background: #e53935;
     color: white;
     border: none;
-    border-radius: 5px;
-    margin-left: 8px;
-    padding: 2px 6px;
+    border-radius: 6px;
+    margin-left: 10px;
+    padding: 3px 7px;
     cursor: pointer;
+    font-size: 0.9em;
+    transition: 0.2s;
+  }
+  .remove-btn:hover { background: #c62828; }
+  #order-btn {
+    width: 100%;
+    margin-top: 12px;
+    background: linear-gradient(90deg, #4caf50, #81c784);
+    font-size: 1.1em;
+    padding: 12px;
+  }
+  footer {
+    background: #333;
+    color: #eee;
+    text-align: center;
+    padding: 15px 10px;
+    font-size: 0.9em;
+  }
+  footer a {
+    color: #82b1ff;
+    text-decoration: none;
+    margin: 0 5px;
   }
 </style>
 </head>
 <body>
 
-<h1>ANNYEONG</h1>
+<header>
+  <h1>🍱 ANNYEONG 🍱</h1>
+  <p>Delicious Korean Food at Your Doorstep</p>
+  <nav>
+    <a href="#products">Menu</a>
+    <a href="#cart">Keranjang</a>
+    <a href="#contact">Kontak</a>
+  </nav>
+</header>
 
-<div class="products" id="products"></div>
+<main>
+  <div class="products" id="products"></div>
 
-<div class="cart" id="cart">
-  <h2>Keranjang</h2>
-  <ul id="cart-items"></ul>
-  <p>Ongkir: Rp <span id="delivery-fee">0</span></p>
-  <p class="total">Total: Rp <span id="total-price">0</span></p>
+  <div class="cart" id="cart">
+    <h2>🛒 Keranjang</h2>
+    <ul id="cart-items"></ul>
+    <p>Ongkir: Rp <span id="delivery-fee">0</span></p>
+    <p class="total">Total: Rp <span id="total-price">0</span></p>
 
-  <label>Nama Pemesan:</label>
-  <input type="text" id="customer-name" placeholder="Masukkan nama lengkap">
+    <label>Nama Pemesan:</label>
+    <input type="text" id="customer-name" placeholder="Masukkan nama lengkap">
 
-  <label>Alamat Pengantar:</label>
-  <input type="text" id="address" placeholder="Masukkan alamat lengkap">
+    <label>Alamat Pengantar:</label>
+    <input type="text" id="address" placeholder="Masukkan alamat lengkap">
 
   <label>Metode Pembayaran:</label>
+<div class="payment-option">
   <select id="payment-method">
     <option value="tunai">Tunai</option>
-    <option value="transfer">SEA Bank 901707287542 a.N debi Dwi amanda</option>
-    <option value="E-Wallet">DANA 089525161966 a.N debi Dwi amanda</option>
+    <option value="seabank">SEA Bank 901707287542 a.N debi Dwi amanda</option>
+    <option value="dana">DANA 089525161966 a.N debi Dwi amanda</option>
   </select>
 
-  <label>Catatan Tambahan:</label>
-  <textarea id="notes" placeholder="Contoh: tanpa pedas, extra saus"></textarea>
+    <label>Catatan Tambahan:</label>
+    <textarea id="notes" placeholder="Contoh: tanpa pedas, extra saus"></textarea>
 
-  <button id="order-btn">Pesan via WhatsApp</button>
-</div>
+    <button id="order-btn">✅ Pesan via WhatsApp</button>
+  </div>
+</main>
+
+<footer id="contact">
+  <p>© 2025 ANNYEONG. All rights reserved.</p>
+  <p>
+    Hubungi kami: 
+    <a href="https://wa.me/6288279631889" target="_blank">088279631889</a> | 
+    <a href="#">@debi_dwi06</a>
+  </p>
+</footer>
 
 <script>
+  
+  
 const products = [
   { id:1, name:"Bento", price:10000, image:"images/bento.jpg" },
   { id:2, name:"Kimbab", price:15000, image:"images/kimbab.jpg" },
@@ -106,8 +306,8 @@ function renderProducts() {
     div.innerHTML = `
       <img src="${p.image}" alt="${p.name}">
       <h3>${p.name}</h3>
-      <p>Rp ${p.price.toLocaleString()}</p>
-      <input type="number" id="qty-${p.id}" value="0" min="0" style="width:50px;">
+      <p style="color:#d32f2f; font-weight:bold;">Rp ${p.price.toLocaleString()}</p>
+      <input type="number" id="qty-${p.id}" value="0" min="0" style="width:60px; text-align:center; border-radius:6px; border:1px solid #aaa;">
       <button onclick="addToCart(${p.id})">Tambah ke Keranjang</button>
     `;
     productsDiv.appendChild(div);
@@ -132,7 +332,7 @@ function removeFromCart(id) {
 function calculateDelivery(addr, subtotal) {
   const a = addr.toLowerCase();
   if(a.includes("lima kaum") || a.includes("rambatan")) return 0;
-  if(subtotal >= 50000) return 0;
+  if(subtotal >= 49000) return 0;
   return 5000;
 }
 
@@ -142,7 +342,6 @@ function renderCart() {
     const li = document.createElement("li");
     li.textContent = `${item.name} x${item.qty} - Rp ${(item.price*item.qty).toLocaleString()}`;
     
-    // Tambah tombol hapus
     const removeBtn = document.createElement("button");
     removeBtn.textContent = "❌";
     removeBtn.className = "remove-btn";
@@ -161,6 +360,7 @@ function renderCart() {
 
   orderBtn.disabled = cart.length === 0 || !customerNameInput.value || !addressInput.value;
 }
+  
 
 addressInput.addEventListener("input", renderCart);
 customerNameInput.addEventListener("input", renderCart);
@@ -185,6 +385,8 @@ Total: Rp ${totalPriceEl.textContent}
 });
 
 renderProducts();
+ 
+
 </script>
 
 </body>
