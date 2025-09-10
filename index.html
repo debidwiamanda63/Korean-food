@@ -32,6 +32,15 @@
   .cart { margin-top: 20px; border-top: 2px solid #333; padding-top: 10px; }
   input, select, textarea { padding: 5px; margin-top: 5px; width: 100%; border-radius: 5px; border: 1px solid #ccc; }
   .total { font-weight: bold; margin-top: 5px; }
+  .remove-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 8px;
+    padding: 2px 6px;
+    cursor: pointer;
+  }
 </style>
 </head>
 <body>
@@ -56,7 +65,7 @@
   <select id="payment-method">
     <option value="tunai">Tunai</option>
     <option value="transfer">SEA Bank 901707287542 a.N debi Dwi amanda</option>
-    <option value="E-Wallet"> DANA 089525161966 a.N debi Dwi amanda</option>
+    <option value="E-Wallet">DANA 089525161966 a.N debi Dwi amanda</option>
   </select>
 
   <label>Catatan Tambahan:</label>
@@ -115,9 +124,15 @@ function addToCart(id) {
   renderCart();
 }
 
-function calculateDelivery(addr) {
+function removeFromCart(id) {
+  cart = cart.filter(item => item.id !== id);
+  renderCart();
+}
+
+function calculateDelivery(addr, subtotal) {
   const a = addr.toLowerCase();
   if(a.includes("lima kaum") || a.includes("rambatan")) return 0;
+  if(subtotal >= 50000) return 0;
   return 5000;
 }
 
@@ -126,13 +141,22 @@ function renderCart() {
   cart.forEach(item => {
     const li = document.createElement("li");
     li.textContent = `${item.name} x${item.qty} - Rp ${(item.price*item.qty).toLocaleString()}`;
+    
+    // Tambah tombol hapus
+    const removeBtn = document.createElement("button");
+    removeBtn.textContent = "❌";
+    removeBtn.className = "remove-btn";
+    removeBtn.onclick = () => removeFromCart(item.id);
+    li.appendChild(removeBtn);
+
     cartItems.appendChild(li);
   });
 
-  deliveryFee = calculateDelivery(addressInput.value);
+  const subtotal = cart.reduce((sum,i)=>sum+i.price*i.qty,0);
+  deliveryFee = calculateDelivery(addressInput.value, subtotal);
   deliveryFeeEl.textContent = deliveryFee.toLocaleString();
 
-  const total = cart.reduce((sum,i)=>sum+i.price*i.qty,0) + deliveryFee;
+  const total = subtotal + deliveryFee;
   totalPriceEl.textContent = total.toLocaleString();
 
   orderBtn.disabled = cart.length === 0 || !customerNameInput.value || !addressInput.value;
