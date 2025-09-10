@@ -15,164 +15,39 @@
     cursor: pointer;
     transition: 0.2s;
   }
-  .copy-btn:hover {
-    background: #1976d2;
-  }
-
+  .copy-btn:hover { background: #1976d2; }
   nav a {
-    position: relative;
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    background: rgba(0,0,0,0.2);
-    padding: 6px 12px;
-    border-radius: 8px;
-    transition: 0.2s;
+    position: relative; color: #fff; text-decoration: none; font-weight: bold;
+    background: rgba(0,0,0,0.2); padding: 6px 12px; border-radius: 8px; transition: 0.2s;
   }
   nav a::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: 2px;
-    width: 0;
-    height: 3px;
-    background: #ffeb3b;
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-    border-radius: 2px;
+    content: ""; position: absolute; left: 50%; bottom: 2px; width: 0; height: 3px;
+    background: #ffeb3b; transition: all 0.3s ease; transform: translateX(-50%); border-radius: 2px;
   }
-  nav a.active::after {
-    width: 60%;
-  }
-  nav a:hover {
-    background: rgba(0,0,0,0.35);
-  }
-
-  body { 
-    font-family: 'Segoe UI', sans-serif; 
-    padding: 0; margin: 0; 
-    background: linear-gradient(135deg, #ffe5ec, #e0f7fa);
-    color: #333;
-    scroll-behavior: smooth;
-  }
-  header {
-    background: linear-gradient(90deg, #ff80ab, #82b1ff);
-    color: white;
-    padding: 15px 10px 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-  header h1 {
-    margin: 0;
-    font-size: 1.8em;
-    text-align: center;
-  }
-  header p {
-    margin: 3px 0 10px;
-    font-size: 1em;
-    text-align: center;
-    font-style: italic;
-  }
-  nav {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-  }
-  main {
-    max-width: 700px;
-    margin: auto;
-    padding: 20px 15px 80px;
-  }
-  .products {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-  }
-  .product {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    padding: 10px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.2s ease;
-  }
-  .product:hover { transform: scale(1.03); }
-  .product img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-  button { 
-    padding: 8px 12px; 
-    margin-top: 8px; 
-    background: linear-gradient(90deg, #ff4081, #f48fb1);
-    color: #fff; 
-    border: none; 
-    border-radius: 8px; 
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.2s;
-  }
-  button:hover { opacity: 0.9; transform: scale(1.05); }
-  button:disabled { background: #ccc; cursor: not-allowed; transform: none; }
-  .cart { 
-    margin-top: 25px; 
-    background: #fff; 
-    border-radius: 12px; 
-    padding: 15px; 
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  }
-  .cart h2 { color: #2196f3; margin-bottom: 10px; }
-  input, select, textarea { 
-    padding: 8px; 
-    margin-top: 5px; 
-    width: 100%; 
-    border-radius: 8px; 
-    border: 1px solid #bbb; 
-    margin-bottom: 10px;
-  }
-  .total { 
-    font-weight: bold; 
-    font-size: 1.2em; 
-    color: #d32f2f; 
-    margin-top: 10px; 
-  }
-  .remove-btn {
-    background: #e53935;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    margin-left: 10px;
-    padding: 3px 7px;
-    cursor: pointer;
-    font-size: 0.9em;
-    transition: 0.2s;
-  }
-  .remove-btn:hover { background: #c62828; }
-  #order-btn {
-    width: 100%;
-    margin-top: 12px;
-    background: linear-gradient(90deg, #4caf50, #81c784);
-    font-size: 1.1em;
-    padding: 12px;
-  }
-  footer {
-    background: #333;
-    color: #eee;
-    text-align: center;
-    padding: 15px 10px;
-    font-size: 0.9em;
-  }
-  footer a {
-    color: #82b1ff;
-    text-decoration: none;
-    margin: 0 5px;
-  }
+  nav a.active::after { width: 60%; }
+  nav a:hover { background: rgba(0,0,0,0.35); }
+  body { font-family: 'Segoe UI', sans-serif; margin:0; background:linear-gradient(135deg,#ffe5ec,#e0f7fa); color:#333; scroll-behavior:smooth; }
+  header { background:linear-gradient(90deg,#ff80ab,#82b1ff); color:white; padding:15px 10px 10px; box-shadow:0 4px 10px rgba(0,0,0,0.15); position:sticky; top:0; z-index:1000; }
+  header h1 { margin:0; font-size:1.8em; text-align:center; }
+  header p { margin:3px 0 10px; font-size:1em; text-align:center; font-style:italic; }
+  nav { display:flex; justify-content:center; gap:15px; }
+  main { max-width:700px; margin:auto; padding:20px 15px 80px; }
+  .products { display:grid; grid-template-columns:repeat(2,1fr); gap:15px; }
+  .product { background:#fff; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:10px; text-align:center; display:flex; flex-direction:column; transition:transform 0.2s ease; }
+  .product:hover { transform:scale(1.03); }
+  .product img { width:100%; height:150px; object-fit:cover; border-radius:8px; }
+  button { padding:8px 12px; margin-top:8px; background:linear-gradient(90deg,#ff4081,#f48fb1); color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:bold; transition:0.2s; }
+  button:hover { opacity:0.9; transform:scale(1.05); }
+  button:disabled { background:#ccc; cursor:not-allowed; transform:none; }
+  .cart { margin-top:25px; background:#fff; border-radius:12px; padding:15px; box-shadow:0 4px 12px rgba(0,0,0,0.15); }
+  .cart h2 { color:#2196f3; margin-bottom:10px; }
+  input, select, textarea { padding:8px; margin-top:5px; width:100%; border-radius:8px; border:1px solid #bbb; margin-bottom:10px; }
+  .total { font-weight:bold; font-size:1.2em; color:#d32f2f; margin-top:10px; }
+  .remove-btn { background:#e53935; color:white; border:none; border-radius:6px; margin-left:10px; padding:3px 7px; cursor:pointer; font-size:0.9em; transition:0.2s; }
+  .remove-btn:hover { background:#c62828; }
+  #order-btn { width:100%; margin-top:12px; background:linear-gradient(90deg,#4caf50,#81c784); font-size:1.1em; padding:12px; }
+  footer { background:#333; color:#eee; text-align:center; padding:15px 10px; font-size:0.9em; }
+  footer a { color:#82b1ff; text-decoration:none; margin:0 5px; }
 </style>
 </head>
 <body>
@@ -200,21 +75,39 @@
     <input type="text" id="customer-name" placeholder="Masukkan nama lengkap">
 
     <label>Alamat Pengantar:</label>
-    <input type="text" id="address" placeholder="Masukkan alamat lengkap (Diatas 50000 gratis ongkir) ">
+    <input type="text" id="address" placeholder="Masukkan alamat lengkap">
+
+    <label>Metode Pengantaran:</label>
+    <select id="delivery-method" onchange="renderCart()">
+      <option value="DELIVERY">Delivery</option>
+      <option value="PICKUP">Ambil Sendiri</option>
+    </select>
 
     <label>Metode Pembayaran:</label>
-    <div class="payment-option">
-      <select id="payment-method">
-        <option value="CASH">TUNAI</option>
-        <option value="TRANSFER ">SEA Bank 901707287542 a.N debi Dwi amanda</option>
-        <option value="E-WALLET">DANA 089525161966 a.N debi Dwi amanda</option>
-      </select>
+    <select id="payment-method" onchange="showCopyBtn()">
+      <option value="CASH">TUNAI</option>
+      <option value="SEABANK">SEA Bank 901707287542 a.N debi Dwi amanda</option>
+      <option value="DANA">DANA 089525161966 a.N debi Dwi amanda</option>
+    </select>
+
+    <div id="copy-container" style="margin-top:8px; display:none;">
+      <button class="copy-btn" onclick="copyNumber()">📋 Salin Nomor</button>
     </div>
 
     <label>Catatan Tambahan:</label>
     <textarea id="notes" placeholder="Contoh: tanpa pedas, extra saus"></textarea>
 
     <button id="order-btn">✅ Pesan via WhatsApp</button>
+
+    <!-- Alamat Toko -->
+    <div style="margin-top:15px; text-align:center;">
+      <p>📍 Alamat Toko:</p>
+      <a href="https://maps.app.goo.gl/9imqdMpAC4JAK2nZ8" 
+         target="_blank" 
+         style="display:inline-block; background:#2196f3; color:white; padding:8px 14px; border-radius:8px; text-decoration:none; font-weight:bold;">
+        Lihat di Google Maps
+      </a>
+    </div>
   </div>
 </main>
 
@@ -225,10 +118,17 @@
     <a href="https://wa.me/6288279631889" target="_blank">088279631889</a> | 
     <a href="#">@debi_dwi06</a>
   </p>
+  <p>
+    📍 <a href="https://maps.app.goo.gl/9imqdMpAC4JAK2nZ8" 
+          target="_blank" 
+          style="color:#82b1ff; text-decoration:none; font-weight:bold;">
+      Lihat Lokasi Toko di Google Maps
+    </a>
+  </p>
 </footer>
 
 <script>
-    const products = [
+const products = [
   { id:1, name:"Bento", price:10000, image:"images/bento.jpg" },
   { id:2, name:"Kimbab", price:15000, image:"images/kimbab2.jpg" },
   { id:3, name:"Korean Lava Chicken Wings", price:10000, image:"images/korean2.jpg" },
@@ -275,13 +175,11 @@ function increaseQty(id) {
   const input = document.getElementById(`qty-${id}`);
   input.value = parseInt(input.value) + 1;
 }
-
 function decreaseQty(id) {
   const input = document.getElementById(`qty-${id}`);
   let val = parseInt(input.value);
   if(val > 0) input.value = val - 1;
 }
-
 function addToCart(id) {
   const qty = parseInt(document.getElementById(`qty-${id}`).value);
   if(qty <= 0) return alert("Masukkan jumlah minimal 1");
@@ -291,50 +189,67 @@ function addToCart(id) {
   else cart.push({ ...prod, qty });
   renderCart();
 }
-
 function removeFromCart(id) {
   cart = cart.filter(item => item.id !== id);
   renderCart();
 }
-
 function calculateDelivery(addr, subtotal) {
+  const method = document.getElementById("delivery-method").value;
+  if(method === "PICKUP") return 0;
   const a = addr.toLowerCase();
   if(a.includes("lima kaum") || a.includes("rambatan")) return 0;
   if(subtotal >= 49000) return 0;
   return 5000;
 }
-
 function renderCart() {
   cartItems.innerHTML = "";
   cart.forEach(item => {
     const li = document.createElement("li");
     li.textContent = `${item.name} x${item.qty} - Rp ${(item.price*item.qty).toLocaleString()}`;
-    
     const removeBtn = document.createElement("button");
     removeBtn.textContent = "❌";
     removeBtn.className = "remove-btn";
     removeBtn.onclick = () => removeFromCart(item.id);
     li.appendChild(removeBtn);
-
     cartItems.appendChild(li);
   });
 
   const subtotal = cart.reduce((sum,i)=>sum+i.price*i.qty,0);
   deliveryFee = calculateDelivery(addressInput.value, subtotal);
   deliveryFeeEl.textContent = deliveryFee.toLocaleString();
-
   const total = subtotal + deliveryFee;
   totalPriceEl.textContent = total.toLocaleString();
 
   orderBtn.disabled = cart.length === 0 || !customerNameInput.value || !addressInput.value;
 }
-
 addressInput.addEventListener("input", renderCart);
 customerNameInput.addEventListener("input", renderCart);
 
+function showCopyBtn() {
+  const method = paymentSelect.value;
+  const copyContainer = document.getElementById("copy-container");
+  if(method === "SEABANK" || method === "DANA") {
+    copyContainer.style.display = "block";
+  } else {
+    copyContainer.style.display = "none";
+  }
+}
+function copyNumber() {
+  let textToCopy = "";
+  if(paymentSelect.value === "SEABANK") textToCopy = "901707287542";
+  else if(paymentSelect.value === "DANA") textToCopy = "089525161966";
+  navigator.clipboard.writeText(textToCopy).then(()=>{
+    alert("Nomor berhasil disalin: " + textToCopy);
+  });
+}
+
 orderBtn.addEventListener("click", ()=>{
-  if(!customerNameInput.value || !addressInput.value) return alert("Nama dan alamat harus diisi!");
-  
+  if(!customerNameInput.value || !addressInput.value) 
+    return alert("Nama dan alamat harus diisi!");
+
+  const confirmOrder = confirm("Apakah data pesanan sudah benar?");
+  if(!confirmOrder) return;
+
   const productList = cart.map(i=>`${i.name} x${i.qty} (${i.price*i.qty})`).join("\n");
   const message = `
 ========== PESANAN ==========
@@ -342,7 +257,8 @@ Nama Pemesan: ${customerNameInput.value}
 ${productList}
 -----------------------------
 Alamat: ${addressInput.value}
-Metode pembayaran: ${paymentSelect.value}
+Metode Pengantaran: ${document.getElementById("delivery-method").value}
+Metode Pembayaran: ${paymentSelect.value}
 Catatan: ${notesInput.value}
 -----------------------------
 Total: Rp ${totalPriceEl.textContent}
@@ -353,6 +269,5 @@ Total: Rp ${totalPriceEl.textContent}
 
 renderProducts();
 </script>
-
 </body>
 </html>
