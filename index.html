@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ANNYEONG - Jualan Makanan Online</title>
 <style>
- 
   .copy-btn {
     background: #2196f3;
     border: none;
@@ -19,9 +18,7 @@
   .copy-btn:hover {
     background: #1976d2;
   }
-</style>
 
-  <style>
   nav a {
     position: relative;
     color: #fff;
@@ -32,8 +29,6 @@
     border-radius: 8px;
     transition: 0.2s;
   }
-
-  /* garis underline animasi */
   nav a::after {
     content: "";
     position: absolute;
@@ -46,41 +41,12 @@
     transform: translateX(-50%);
     border-radius: 2px;
   }
-
   nav a.active::after {
     width: 60%;
   }
-
   nav a:hover {
     background: rgba(0,0,0,0.35);
   }
-
-<script>
- 
-
-
-  const sections = document.querySelectorAll("main > div, footer");
-  const navLinks = document.querySelectorAll("nav a");
-
-  window.addEventListener("scroll", () => {
-    let current = "";
-    sections.forEach(sec => {
-      const top = window.scrollY;
-      const offset = sec.offsetTop - 150;
-      const height = sec.offsetHeight;
-      if (top >= offset && top < offset + height) {
-        current = sec.getAttribute("id");
-      }
-    });
-
-    navLinks.forEach(link => {
-      link.classList.remove("active");
-      if (link.getAttribute("href") === `#${current}`) {
-        link.classList.add("active");
-      }
-    });
-  });
-</script>
 
   body { 
     font-family: 'Segoe UI', sans-serif; 
@@ -113,18 +79,6 @@
     display: flex;
     justify-content: center;
     gap: 15px;
-  }
-  nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    background: rgba(0,0,0,0.2);
-    padding: 6px 12px;
-    border-radius: 8px;
-    transition: 0.2s;
-  }
-  nav a:hover {
-    background: rgba(0,0,0,0.35);
   }
   main {
     max-width: 700px;
@@ -248,13 +202,14 @@
     <label>Alamat Pengantar:</label>
     <input type="text" id="address" placeholder="Masukkan alamat lengkap (Diatas 50000 gratis ongkir) ">
 
-  <label>Metode Pembayaran:</label>
-<div class="payment-option">
-  <select id="payment-method">
-    <option value="CASH">TUNAI</option>
-    <option value="TRANSFER ">SEA Bank 901707287542 a.N debi Dwi amanda</option>
-    <option value="E-WALLET">DANA 089525161966 a.N debi Dwi amanda</option>
-  </select>
+    <label>Metode Pembayaran:</label>
+    <div class="payment-option">
+      <select id="payment-method">
+        <option value="CASH">TUNAI</option>
+        <option value="TRANSFER ">SEA Bank 901707287542 a.N debi Dwi amanda</option>
+        <option value="E-WALLET">DANA 089525161966 a.N debi Dwi amanda</option>
+      </select>
+    </div>
 
     <label>Catatan Tambahan:</label>
     <textarea id="notes" placeholder="Contoh: tanpa pedas, extra saus"></textarea>
@@ -273,9 +228,7 @@
 </footer>
 
 <script>
-  
-  
-const products = [
+    const products = [
   { id:1, name:"Bento", price:10000, image:"images/bento.jpg" },
   { id:2, name:"Kimbab", price:15000, image:"images/kimbab2.jpg" },
   { id:3, name:"Korean Lava Chicken Wings", price:10000, image:"images/korean2.jpg" },
@@ -307,11 +260,26 @@ function renderProducts() {
       <img src="${p.image}" alt="${p.name}">
       <h3>${p.name}</h3>
       <p style="color:#d32f2f; font-weight:bold;">Rp ${p.price.toLocaleString()}</p>
-      <input type="number" id="qty-${p.id}" value="0" min="0" style="width:60px; text-align:center; border-radius:6px; border:1px solid #aaa;">
+      <div style="display:flex; justify-content:center; align-items:center; gap:6px;">
+        <button onclick="decreaseQty(${p.id})" style="padding:4px 8px; border-radius:6px; background:#e53935; color:#fff; border:none;">-</button>
+        <input type="number" id="qty-${p.id}" value="0" min="0" style="width:50px; text-align:center; border-radius:6px; border:1px solid #aaa;">
+        <button onclick="increaseQty(${p.id})" style="padding:4px 8px; border-radius:6px; background:#4caf50; color:#fff; border:none;">+</button>
+      </div>
       <button onclick="addToCart(${p.id})">Tambah ke Keranjang</button>
     `;
     productsDiv.appendChild(div);
   });
+}
+
+function increaseQty(id) {
+  const input = document.getElementById(`qty-${id}`);
+  input.value = parseInt(input.value) + 1;
+}
+
+function decreaseQty(id) {
+  const input = document.getElementById(`qty-${id}`);
+  let val = parseInt(input.value);
+  if(val > 0) input.value = val - 1;
 }
 
 function addToCart(id) {
@@ -360,7 +328,6 @@ function renderCart() {
 
   orderBtn.disabled = cart.length === 0 || !customerNameInput.value || !addressInput.value;
 }
-  
 
 addressInput.addEventListener("input", renderCart);
 customerNameInput.addEventListener("input", renderCart);
@@ -385,8 +352,6 @@ Total: Rp ${totalPriceEl.textContent}
 });
 
 renderProducts();
- 
-
 </script>
 
 </body>
