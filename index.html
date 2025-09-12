@@ -201,7 +201,7 @@
   background: #128C7E;
 }
 
-  .discount-badge {
+/*  .discount-badge {
   position: absolute;
   top: 10px;
   left: 10px;
@@ -471,7 +471,7 @@
            } 
   
   .menu-grid { display: grid;
-              grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+              grid-template-columns: repeat(2, 1fr);
               gap: 20px; justify-items: center; 
              } 
   .product-card { position: relative; background: #fff; 
@@ -735,12 +735,12 @@
   <button class="hero-btn" onclick="scrollToSection('products')">pesan sekarang</button>
 </section>
   
-  <section class="menu" id="menu-promo">
+<!--  <section class="menu" id="menu-promo">
   <h2>🔥Menu Promo Spesial jumat berkah🔥</h2>
   <div class="menu-grid">
 
     <!-- Produk Promo Mango Sticky Rice -->
-    <div class="product-card">
+ <!--   <div class="product-card">
       <div class="discount-badge">20% OFF</div>
       <img src="images/mango2.jpg" alt="Mango Sticky Rice" class="product-img">
       <h3>Mango Sticky Rice</h3>
@@ -750,14 +750,14 @@
       </p>
 
       <!-- Tombol qty -->
-      <div class="product-actions">
+ <!--     <div class="product-actions">
         <button class="qty-btn" onclick="decreaseQty(7)">-</button>
         <input type="number" id="qty-7" value="0" min="0" class="qty-input">
         <button class="qty-btn plus" onclick="increaseQty(7)">+</button>
       </div>
 
       <!-- Tombol Tambah ke Keranjang -->
-      <button class="btn-order" onclick="addToCart(7)">Tambah ke Keranjang</button>
+ <!--     <button class="btn-order" onclick="addToCart(7)">Tambah ke Keranjang</button>
     </div>
 
   </div>
@@ -974,7 +974,7 @@ const products = [
   { 
     id: 7, 
     name: "Mango Sticky Rice", 
-    price: 12000, 
+    price: 15000, 
     image: "images/mango2.jpg", 
     category: "dessert",
     description: "Nasi ketan manis dengan mangga segar",
